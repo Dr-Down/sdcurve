@@ -68,7 +68,7 @@ class PerimeterCurve(object):
         Function to create percentis curves to plot in google charts.
         """
 
-        array_data_table = [['Ages', '3%', '10%', '25%', '50%', '75%', '90%', '97%']]
+        array_data_table = [['Ages', '3%', '10%', '25%', '50%', '75%', '90%', '97%', "Patient"]]
 
         ages = self.make(PerimeterCurve.AGES)
         percentis_3 = self.make(PerimeterCurve.PERCENTIS_3)
@@ -90,6 +90,11 @@ class PerimeterCurve(object):
                 percentis_90[age],
                 percentis_97[age],
             ])
+
+        for i in range(len(array_data_table)):
+            if i == 0:
+                continue
+            array_data_table[i].append(0.0)
 
         return array_data_table
 

@@ -71,7 +71,7 @@ class IMCCurve(object):
         Function to create percentis curves to plot in google charts.
         """
 
-        array_data_table = [['Ages', '5%', '10%', '25%', '50%', '75%', '85%', '90%', '95%']]
+        array_data_table = [['Ages', '5%', '10%', '25%', '50%', '75%', '85%', '90%', '95%', "Patient"]]
 
         ages = self.make(IMCCurve.AGES)
         percentis_5 = self.make(IMCCurve.PERCENTIS_5)
@@ -97,6 +97,11 @@ class IMCCurve(object):
                 percentis_90[age],
                 percentis_95[age],
             ])
+
+        for i in range(len(array_data_table)):
+            if i == 0:
+                continue
+            array_data_table[i].append(0.0)
 
         return array_data_table
 

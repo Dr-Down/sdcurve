@@ -4,7 +4,30 @@ google.charts.setOnLoadCallback(drawChart);
 function convertToArray(string) {
   string = string.replace(/'/g, '"');
   var array = JSON.parse(string)
+
+  // Insert new curve with null
+  for(i=2; i<array.length; i++) {
+    array[i][8] = null
+  }
+
+  populatePatientCurve(array)
+
+  console.log(array)
+
   return array
+}
+
+function populatePatientCurve(array) {
+  array[10][8] = 67.10
+  array[11][8] = 70.00
+  array[12][8] = 73.69
+  array[13][8] = 74.77
+  array[14][8] = 79.00
+  array[17][8] = 80.23
+  array[18][8] = 83.22
+  array[19][8] = 85.60
+  array[20][8] = 85.62
+  array[22][8] = 85.62
 }
 
 function defineOptions(title) {
